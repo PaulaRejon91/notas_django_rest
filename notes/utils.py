@@ -1,9 +1,8 @@
 #Funciones para realizar operaciones CRUD (Crear, Leer, Actualizar, Eliminar) 
-# en la entidad de "nota" de la base de datos.
 
-from rest_framework.response import Response #Esta es la respuesta que devolveremos 
-from .models import Note # Este es el modelo que usaremos
-from .serializers import NoteSerializer # Este es el serializador que usaremos 
+from rest_framework.response import Response 
+from .models import Note 
+from .serializers import NoteSerializer #
 
 # This function will return the notes list
 def getNotesList(request): 
