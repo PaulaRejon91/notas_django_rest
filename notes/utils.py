@@ -21,7 +21,7 @@ def getNoteDetail(request,pk):
 
 # This function will update a note
 def updateNote(request,pk):
-    data=request.data #?
+    data=request.data 
     note=Note.objects.get(id=pk)
     serializer=NoteSerializer(instance=note, data=data)
     if serializer.is_valid():
@@ -33,6 +33,16 @@ def deleteNote(request,pk):
     note=Note.objects.get(id=pk)
     note.delete()
     return Response('Note was deleted!')
+
+# This function will create a note
+def createNote(request):
+    data = request.data
+    note = Note.objects.create(
+        body=data['body']
+    )
+    serializer = NoteSerializer(note, many=False)
+    return Response(serializer.data)
+
 
 
 
