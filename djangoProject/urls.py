@@ -15,20 +15,10 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path
-from django.db import models
+from django.urls import path, include
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-]
+    path('<notas>/', include('<notas>.urls'))
+    ]
 
-# Create your models here.
-# This is the model for the notes
-class Note(models.Model):
-    body = models.TextField(null=True, blank=True)
-    created = models.DateTimeField(auto_now_add=True)
-    updated = models.DateTimeField(auto_now=True)
-
-# This is the string representation of the object
-def __str__(self):
-     return self.title
